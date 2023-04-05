@@ -1,11 +1,12 @@
 import openai
 import os
+import time
 
 # APIキーの設定
 openai.api_key = os.environ['OPENAI_API_KEY']
+
 # プロンプトの設定
 PROMPT = "あなたはこれからチャットボットとして振る舞ってください。"
-
 
 # DB代わりにグローバルなListを持っておく
 chat_history = [
@@ -21,10 +22,24 @@ def main():
 
 def create_response(user_input):
     chat_history.append({"role": "user", "content": user_input})
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=chat_history
-    )
+    
+    MAX_RETRY = 5
+    RETRY_INTERVAL = 1
+    for i in range(0, MAX_RETRY):
+        try:
+            response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=chat_history
+            )
+            break
+        except:
+            if i + 1 == MAX_RETRY:
+                print("API接続エラー")
+                break
+            print("接続をリトライします: {}回目".format(i + 1))
+            time.sleep(RETRY_INTERVAL)
+            continue
+
     assistant_response = response.choices[0]["message"]["content"].strip()
     chat_history.append({"role": "assistant", "content": assistant_response})
 
