@@ -8,6 +8,8 @@ OpenAIの公式チュートリアルが動きます。
 
 (https://platform.openai.com/docs/quickstart/build-your-application )
 
+`.env` ファイルに自分のAPIキーを設定しておいてください。(間違ってもpushしないこと！)
+
 `./node/` 配下で以下を叩くとNext.jsの開発サーバが動きます。
 
 ```
@@ -17,6 +19,8 @@ $ make up
 ## pythonディレクトリ配下
 
 私が作ったテストアプリが動きます。
+
+`.env` ファイルに自分のAPIキーを設定しておいてください。(間違ってもpushしないこと！)
 
 `./python/` 配下で以下を叩くとCLIでチャットができるようになります。
 
