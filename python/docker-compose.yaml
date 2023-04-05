@@ -9,5 +9,4 @@ services:
     container_name: 'python3'
     working_dir: '/root/src'
     volumes:
-      - ./src:/root/src
-    user: "1000:1000"
+      - ./src:/root/src:ro
