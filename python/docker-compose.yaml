@@ -10,4 +10,3 @@ services:
     working_dir: '/root/src'
     volumes:
       - ./src:/root/src
-    user: "1000:1000"
