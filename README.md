@@ -11,9 +11,7 @@ OpenAIの公式チュートリアルが動きます。
 `./node/` 配下で以下を叩くとNext.jsの開発サーバが動きます。
 
 ```
-
 $ make up
-
 ```
 
 ## pythonディレクトリ配下
@@ -23,11 +21,8 @@ $ make up
 `./python/` 配下で以下を叩くとCLIでチャットができるようになります。
 
 ```
-
 $ make up
-
 $ make app
-
 ```
 
 `make up` するとPython3環境に`openai` ライブラリが `pip install` されます。
@@ -39,9 +34,7 @@ $ make app
 コンテナは `-d` で立ち上がっているので使い終わったら以下を叩いておきましょう。
 
 ```
-
 $ make down
-
 ```
 
 ## 後片付け
