@@ -11,6 +11,8 @@ export default function Home() {
   async function onSubmit(event) {
     event.preventDefault();
     try {
+      const payload = `食材: [${foods.join(",")}],
+手間: ${tema}`
       const response = await fetch("/api/generate", {
         method: "POST",
         headers: {

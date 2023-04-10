@@ -64,6 +64,7 @@
   cursor: pointer;
 }
 .main .result {
-  font-weight: bold;
   margin-top: 40px;
+  width: 80%;
+  white-space: pre-wrap;
 }
