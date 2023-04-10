@@ -11,16 +11,14 @@ export default function Home() {
   async function onSubmit(event) {
     event.preventDefault();
     try {
-      const payload = `食材: [${foods.join(",")}],
-手間: ${tema}`
+      const payload = `食材: [${foods.join(",")}], 手間: ${tema}`
       const response = await fetch("/api/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
-          食料:foods.filter(food => food !== ""),
-          手間: tema
+          inputText: payload
         }),
       });
 
