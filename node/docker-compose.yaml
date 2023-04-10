@@ -6,12 +6,10 @@ services:
     image: node:19
     working_dir: /usr/src/app
     tty: true
-    ports: 
+    ports:
     - '3000:3000'
     volumes:
       - ./:/usr/src/app
     user: "1000:1000"
     command: >
-      bash -c "npm install &&
-      npm run dev"
-    
+      bash -c "yarn && yarn dev"
