@@ -60,13 +60,13 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>レシピAI</title>
+        <title>レシピAIとずんだもん</title>
         <link rel="icon" href="/chef.png" />
       </Head>
 
       <main className={styles.main}>
         <img src="/chef.png" className={styles.icon} />
-        <h3>レシピAI</h3>
+        <h3>レシピAIの作った料理を批評するずんだもん</h3>
         <form onSubmit={onSubmit}>
         <h4>らくらく度 (%)</h4>
         <input
