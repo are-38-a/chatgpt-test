@@ -18,7 +18,10 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({inputText:payload}),
+        body: JSON.stringify({ 
+          食料:foods.filter(food => food !== ""),
+          手間: tema
+        }),
       });
 
       const data = await response.json();
