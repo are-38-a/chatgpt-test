@@ -18,7 +18,7 @@ export default async function (req, res) {
   const inputText = req.body.inputText || '';
 
   try {
-   // console.log(inputText)
+    console.log(inputText)
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
