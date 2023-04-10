@@ -16,16 +16,9 @@ export default async function (req, res) {
   }
 
   const inputText = req.body.inputText || '';
-  if (inputText.trim().length === 0) {
-    res.status(400).json({
-      error: {
-        message: "食材を入力してください",
-      }
-    });
-    return;
-  }
 
   try {
+   // console.log(inputText)
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
@@ -36,12 +29,7 @@ export default async function (req, res) {
         {
           role: "user",
           content: `
-            食材: {
-              ジャガイモ: 5,
-              にんじん: 4,
-              バター: 5
-            },
-            手間: 50
+            ${inputText}
           `
         }
       ],
