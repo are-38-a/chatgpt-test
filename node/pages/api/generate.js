@@ -26,8 +26,8 @@ export default async function (req, res) {
   }
 
   try {
-    const completion = await openai.createCompletion({
-      model: "text-davinci-003",
+    const completion = await openai.chatCreateCompletion({
+      model: "gpt-3.5-turbo",
       prompt: generatePrompt(animal),
       temperature: 0.6,
     });
