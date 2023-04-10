@@ -7,8 +7,10 @@ export default function Home() {
   const [foods, setFoods] = useState([""]);
   const [tema, setTema] = useState(50);
   const [voiceUrl, setVoiceUrl] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   async function onSubmit(event) {
+    setIsLoading(true);
     event.preventDefault();
     try {
       const payload = `食材: [${foods.join(",")}], 手間: ${tema}`
@@ -52,20 +54,21 @@ export default function Home() {
       console.error(error);
       alert(error.message);
     }
+    setIsLoading(false);
   }
 
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <title>レシピAI</title>
+        <link rel="icon" href="/chef.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>レシピAIの作った料理を酷評するずんだもん</h3>
-        <h3>らくらく度 (%)</h3>
+        <img src="/chef.png" className={styles.icon} />
+        <h3>レシピAI</h3>
         <form onSubmit={onSubmit}>
+        <h4>らくらく度 (%)</h4>
         <input
             type="number"
             name="animal"
@@ -75,7 +78,7 @@ export default function Home() {
               setTema(e.target.value)
             }}
           />
-        <h3>食材</h3>
+        <h4>食材</h4>
         {foods.map((food,index) => (
           <input
             type="text"
@@ -95,9 +98,9 @@ export default function Home() {
             }}
           />
         ))}
-          <input type="submit" value="おすすめレシピを聞く" />
+          <input type="submit" value="おすすめレシピを聞く" disabled={isLoading}/>
         </form>
-        <div className={styles.result}>{result}</div>
+        {isLoading? <p>loading...</p> :<div className={styles.result}>{result}</div>}
         <video
           src={voiceUrl}
           autoPlay
